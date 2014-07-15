@@ -8,3 +8,10 @@ body {
 	font-family: "Helvetica", Arial, Serif;
 	position: relative;
 }
+video, canvas, p {
+	text-align: center;
+}
+
+p {
+	color: #fff;
+}
