@@ -58,9 +58,9 @@
 				if (event.detection == "CS") {
 					overlayContext.translate(event.x, event.y);
 					overlayContext.rotate(event.angle-(Math.PI/2));
-					overlayContext.drawImage(drawing, -1*(event.width/2), -1*(event.height/2), event.width, event.height);
+					overlayContext.drawImage(drawing, -1*(event.width/2), -1*(event.height/2), event.width*1.3, event.height*1.3);
 					overlayContext.strokeStyle = "#00CC00";
-					overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
+					overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width*1.3, event.height*1.3);
 					overlayContext.rotate((Math.PI/2)-event.angle);
 					overlayContext.translate(-event.x, -event.y);
 				}
