@@ -29,6 +29,9 @@
 				"no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. Try <a href='http://www.opera.com/browser/'>downloading Opera 12</a> or <a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. Now using fallback video for facedetection.",
 				"no camera" : "No camera found. Using fallback video for facedetection."
 			};
+
+			drawing = new Image() 
+			drawing.src = "img/scotasset.png" 
 			
 			document.addEventListener("headtrackrStatus", function(event) {
 				if (event.status in supportMessages) {
@@ -53,10 +56,11 @@
 				overlayContext.clearRect(0,0,640,480);
 				// once we have stable tracking, draw rectangle
 				if (event.detection == "CS") {
-					overlayContext.translate(event.x, event.y)
+					overlayContext.translate(event.x, event.y);
 					overlayContext.rotate(event.angle-(Math.PI/2));
-					overlayContext.strokeStyle = "#00CC00";
-					overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
+					overlayContext.drawImage(drawing, event.x, event.y);
+					//overlayContext.strokeStyle = "#00CC00";
+					//overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
 					overlayContext.rotate((Math.PI/2)-event.angle);
 					overlayContext.translate(-event.x, -event.y);
 				}
