@@ -32,7 +32,7 @@
 
 			var drawing = new Image();
 			drawing.src = "img/scotasset.png" ;
-			var scaleFactor = 1.5;
+			var scaleFactor = 1.4;
 			
 			document.addEventListener("headtrackrStatus", function(event) {
 				if (event.status in supportMessages) {
