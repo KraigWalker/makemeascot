@@ -30,8 +30,9 @@
 				"no camera" : "No camera found. Using fallback video for facedetection."
 			};
 
-			drawing = new Image() 
-			drawing.src = "img/scotasset.png" 
+			var drawing = new Image();
+			drawing.src = "img/scotasset.png" ;
+			var scaleFactor = 1.5;
 			
 			document.addEventListener("headtrackrStatus", function(event) {
 				if (event.status in supportMessages) {
@@ -58,7 +59,7 @@
 				if (event.detection == "CS") {
 					overlayContext.translate(event.x, event.y);
 					overlayContext.rotate(event.angle-(Math.PI/2));
-					overlayContext.drawImage(drawing, (-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width*1.6, event.height*1.6);
+					overlayContext.drawImage(drawing, (-(event.width/2)*scaleFactor) >> 0, (-(event.height/2)*scaleFactor) >> 0, event.width*scaleFactor, event.height*scaleFactor);
 					overlayContext.strokeStyle = "#00CC00";
 					overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
 					overlayContext.rotate((Math.PI/2)-event.angle);
