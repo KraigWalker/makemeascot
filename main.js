@@ -50,7 +50,7 @@
 			
 			document.addEventListener("facetrackingEvent", function( event ) {
 				// clear canvas
-				overlayContext.clearRect(0,0,640,320);
+				overlayContext.clearRect(0,0,640,480);
 				// once we have stable tracking, draw rectangle
 				if (event.detection == "CS") {
 					overlayContext.translate(event.x, event.y)
